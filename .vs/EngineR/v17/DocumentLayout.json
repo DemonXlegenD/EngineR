@@ -3,36 +3,68 @@
   "WorkspaceRootPath": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Texture.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Shader.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Texture.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\EngineR.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:EngineR.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:VertexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\light.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:light.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\default.vert||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:default.vert||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\default.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:default.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:VertexArray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:VertexBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Shader.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\light.vert||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:light.vert||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\stb.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:stb.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\USERS\\FLAHA\\DOCUMENTS\\GITHUB\\ENGINER\\ENGINER\\LIBRAIRIES\\GLM\\GTX\\TRANSFORM.HPP||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:LIBRAIRIES\\GLM\\GTX\\TRANSFORM.HPP||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:VertexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:IndexBuffer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:VertexArray.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|solutionrelative:VertexArray.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DA86CFA6-F566-4B8E-A0D2-30BF20582DCD}|EngineR.vcxproj|C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -46,114 +78,20 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 9,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "VertexArray.cpp",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.cpp",
-              "RelativeDocumentMoniker": "VertexArray.cpp",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.cpp",
-              "RelativeToolTip": "VertexArray.cpp",
-              "ViewState": "AQIAABEAAAAAAAAAAAAQwB8AAAAaAAAA",
+              "DocumentIndex": 12,
+              "Title": "stb.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\stb.cpp",
+              "RelativeDocumentMoniker": "stb.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\stb.cpp",
+              "RelativeToolTip": "stb.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-23T21:04:08.543Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "VertexArray.h",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.h",
-              "RelativeDocumentMoniker": "VertexArray.h",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.h",
-              "RelativeToolTip": "VertexArray.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-23T21:02:16.91Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "IndexBuffer.cpp",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.cpp",
-              "RelativeDocumentMoniker": "IndexBuffer.cpp",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.cpp",
-              "RelativeToolTip": "IndexBuffer.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-23T20:53:33.194Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IndexBuffer.h",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.h",
-              "RelativeDocumentMoniker": "IndexBuffer.h",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.h",
-              "RelativeToolTip": "IndexBuffer.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-23T20:53:25.033Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "VertexBuffer.cpp",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.cpp",
-              "RelativeDocumentMoniker": "VertexBuffer.cpp",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.cpp",
-              "RelativeToolTip": "VertexBuffer.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-23T20:49:55.493Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "VertexBuffer.h",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.h",
-              "RelativeDocumentMoniker": "VertexBuffer.h",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.h",
-              "RelativeToolTip": "VertexBuffer.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-23T20:43:12.584Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Shader.cpp",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.cpp",
-              "RelativeDocumentMoniker": "Shader.cpp",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.cpp",
-              "RelativeToolTip": "Shader.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-23T20:37:47.744Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Shader.h",
-              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.h",
-              "RelativeDocumentMoniker": "Shader.h",
-              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.h",
-              "RelativeToolTip": "Shader.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABcAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-23T20:35:02.692Z",
+              "WhenOpened": "2025-03-31T09:19:07.772Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -164,9 +102,206 @@
               "RelativeDocumentMoniker": "EngineR.cpp",
               "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\EngineR.cpp",
               "RelativeToolTip": "EngineR.cpp",
-              "ViewState": "AQIAAFQAAAAAAAAAAAAgwF8AAAA8AAAA",
+              "ViewState": "AQIAAI0AAAAAAAAAAAAgwJ0AAAALAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-23T14:32:38.286Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "VertexArray.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.cpp",
+              "RelativeDocumentMoniker": "VertexArray.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexArray.cpp",
+              "RelativeToolTip": "VertexArray.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-23T21:04:08.543Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "IndexBuffer.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.cpp",
+              "RelativeDocumentMoniker": "IndexBuffer.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.cpp",
+              "RelativeToolTip": "IndexBuffer.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-23T20:53:33.194Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IndexBuffer.h",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.h",
+              "RelativeDocumentMoniker": "IndexBuffer.h",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\IndexBuffer.h",
+              "RelativeToolTip": "IndexBuffer.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-23T20:53:25.033Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "VertexBuffer.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.cpp",
+              "RelativeDocumentMoniker": "VertexBuffer.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.cpp",
+              "RelativeToolTip": "VertexBuffer.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAA6wAMAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-23T20:49:55.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "VertexBuffer.h",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.h",
+              "RelativeDocumentMoniker": "VertexBuffer.h",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\VertexBuffer.h",
+              "RelativeToolTip": "VertexBuffer.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-23T20:43:12.584Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Shader.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.cpp",
+              "RelativeDocumentMoniker": "Shader.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Shader.cpp",
+              "RelativeToolTip": "Shader.cpp",
+              "ViewState": "AQIAADUAAAAAAAAAAAAQwDAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-23T20:37:47.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Texture.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Texture.cpp",
+              "RelativeDocumentMoniker": "Texture.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Texture.cpp",
+              "RelativeToolTip": "Texture.cpp",
+              "ViewState": "AQIAAB0AAAAAAAAAAAAQwCUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-31T09:31:31.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "default.frag",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\default.frag",
+              "RelativeDocumentMoniker": "default.frag",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\default.frag",
+              "RelativeToolTip": "default.frag",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAIwCwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-31T08:37:54.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Texture.h",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Texture.h",
+              "RelativeDocumentMoniker": "Texture.h",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Texture.h",
+              "RelativeToolTip": "Texture.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-31T09:31:22.894Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "default.vert",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\default.vert",
+              "RelativeDocumentMoniker": "default.vert",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\default.vert",
+              "RelativeToolTip": "default.vert",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAIwCgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-31T20:34:44.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "light.frag",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\light.frag",
+              "RelativeDocumentMoniker": "light.frag",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\light.frag",
+              "RelativeToolTip": "light.frag",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-31T19:40:07.152Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Camera.h",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Camera.h",
+              "RelativeDocumentMoniker": "Camera.h",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Camera.h",
+              "RelativeToolTip": "Camera.h",
+              "ViewState": "AQIAAAcAAAAAAAAAAIAxwBMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-31T17:06:44.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Camera.cpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Camera.cpp",
+              "RelativeDocumentMoniker": "Camera.cpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Camera.cpp",
+              "RelativeToolTip": "Camera.cpp",
+              "ViewState": "AQIAACMAAAAAAAAAAAAQwC0AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-03-31T17:10:22.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "transform.hpp",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Librairies\\glm\\gtx\\transform.hpp",
+              "RelativeDocumentMoniker": "Librairies\\glm\\gtx\\transform.hpp",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\Librairies\\glm\\gtx\\transform.hpp",
+              "RelativeToolTip": "Librairies\\glm\\gtx\\transform.hpp",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAQwBYAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-03-31T17:16:07.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "light.vert",
+              "DocumentMoniker": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\light.vert",
+              "RelativeDocumentMoniker": "light.vert",
+              "ToolTip": "C:\\Users\\flaha\\Documents\\GitHub\\EngineR\\EngineR\\light.vert",
+              "RelativeToolTip": "light.vert",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-31T19:38:55.798Z",
               "EditorCaption": ""
             }
           ]

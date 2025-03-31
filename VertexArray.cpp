@@ -7,13 +7,13 @@ VertexArray::VertexArray()
 }
 
 // Links a VBO to the VAO using a certain layout
-void VertexArray::LinkVertexBuffer(VertexBuffer _vbo, GLuint _layout)
+void VertexArray::LinkAttrib(VertexBuffer& _vertexBuffer, GLuint _layout, GLuint _numComponents, GLenum _type, GLsizeiptr _stride, void* _offset)
 {
-	_vbo.Bind();
+	_vertexBuffer.Bind();
 
-	glVertexAttribPointer(_layout, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glVertexAttribPointer(_layout, _numComponents, _type, GL_FALSE, _stride , _offset);
 	glEnableVertexAttribArray(_layout);
-	_vbo.Unbind();
+	_vertexBuffer.Unbind();
 }
 
 // Binds the VAO
