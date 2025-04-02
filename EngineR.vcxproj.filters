@@ -48,6 +48,15 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Debug.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="default.vert">
@@ -60,6 +69,24 @@
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
     <None Include="light.frag">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="outlining.vert">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="outlining.frag">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="grass.frag">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="window.frag">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="framebuffer.vert">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="framebuffer.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
   </ItemGroup>
@@ -80,6 +107,15 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Debug.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

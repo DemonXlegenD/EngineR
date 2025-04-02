@@ -15,52 +15,29 @@
 #include "Texture.h"
 #include "Camera.h"
 
-// Vertices coordinates
-GLfloat vertices[] =
-{ //     COORDINATES     /        COLORS        /    TexCoord    /       NORMALS     //
-    -1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
-    -1.0f, 0.0f, -1.0f,		0.0f, 0.0f, 0.0f,		0.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-     1.0f, 0.0f, -1.0f,		0.0f, 0.0f, 0.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-     1.0f, 0.0f,  1.0f,		0.0f, 0.0f, 0.0f,		1.0f, 0.0f,		0.0f, 1.0f, 0.0f
-};
-
-// Indices for vertices order
-GLuint indices[] =
-{
-    0, 1, 2,
-    0, 2, 3
-};
-
-GLfloat lightVertices[] =
-{ //     COORDINATES     //
-    -0.1f, -0.1f,  0.1f,
-    -0.1f, -0.1f, -0.1f,
-     0.1f, -0.1f, -0.1f,
-     0.1f, -0.1f,  0.1f,
-    -0.1f,  0.1f,  0.1f,
-    -0.1f,  0.1f, -0.1f,
-     0.1f,  0.1f, -0.1f,
-     0.1f,  0.1f,  0.1f
-};
-
-GLuint lightIndices[] =
-{
-    0, 1, 2,
-    0, 2, 3,
-    0, 4, 7,
-    0, 7, 3,
-    3, 7, 6,
-    3, 6, 2,
-    2, 6, 5,
-    2, 5, 1,
-    1, 5, 4,
-    1, 4, 0,
-    4, 5, 6,
-    4, 6, 7
-};
+#include "Model.h"
 
 const int width = 800;
 const int height = 800;
+
+// Takes care of the information needed to draw the windows
+const unsigned int numWindows = 100;
+glm::vec3 positionsWin[numWindows];
+float rotationsWin[numWindows];
+
+// Takes care of drawing the windows in the right order
+unsigned int orderDraw[numWindows];
+float distanceCamera[numWindows];
+
+// Compare function
+int compare(const void* a, const void* b)
+{
+    double diff = distanceCamera[*(int*)b] - distanceCamera[*(int*)a];
+    return  (0 < diff) - (diff < 0);
+}
+
+std::string directory_path = std::filesystem::current_path().string();
+std::string resources_path = directory_path + "\\Resources\\";
 
 int main()
 {
@@ -92,111 +69,154 @@ int main()
     // Specify the viewport of OpenGL in the Window (!= window)
     glViewport(0, 0, width, height); 
 
-    // Creates Shader object using shaders default.vert and default.frag
+    // Generates Shader object using shaders default.vert and default.frag
     Shader shader_program("default.vert", "default.frag");
-    
-    //Generates Vertex Array
-    VertexArray VAO1;
-    VAO1.Bind();
+    Shader shader_grass_program("default.vert", "grass.frag");
+    Shader shader_window_program("default.vert", "window.frag");
 
-    //Generates Vertex Buffer Object & Index Buffer Object and their links to vertices and to indices
-    VertexBuffer VBO1(vertices, sizeof(vertices));
-    IndexBuffer EBO1(indices, sizeof(indices));
+    Shader outlining_shader_program("outlining.vert", "outlining.frag");
 
-    // Links VBO attributes such as coordinates and colors to VAO
-    VAO1.LinkAttrib(VBO1, 0, 3, GL_FLOAT, 11 * sizeof(float), (void*)0);
-    VAO1.LinkAttrib(VBO1, 1, 3, GL_FLOAT, 11 * sizeof(float), (void*)(3*sizeof(float)));
-    VAO1.LinkAttrib(VBO1, 2, 2, GL_FLOAT, 11 * sizeof(float), (void*)(6 * sizeof(float)));
-    VAO1.LinkAttrib(VBO1, 3, 3, GL_FLOAT, 11 * sizeof(float), (void*)(8 * sizeof(float)));
-
-    // Unbind all to prevent accidentally modifying them
-    VAO1.Unbind();
-    VBO1.Unbind();
-    EBO1.Unbind();
-
-
-    Shader light_shader("light.vert", "light.frag");
-
-    VertexArray light_VAO;
-    light_VAO.Bind();
-
-    VertexBuffer light_VBO(lightVertices, sizeof(lightVertices));
-    IndexBuffer light_EBO(lightIndices, sizeof(lightIndices));
-
-    light_VAO.LinkAttrib(light_VBO, 0, 3, GL_FLOAT, 3 * sizeof(float), (void*)0);
-
-    light_VAO.Unbind();
-    light_VBO.Unbind();
-    light_EBO.Unbind();
-
-
+    // Take care of all the light related things
     glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
     glm::mat4 lightModel = glm::mat4(1.0f);
     lightModel = glm::translate(lightModel, lightPos);
 
-    glm::vec3 pyramidPos = glm::vec3(0.0f, 0.0f, 0.0f);
-    glm::mat4 pyramidModel = glm::mat4(1.0f);
-    pyramidModel = glm::translate(pyramidModel, pyramidPos);
-
-
-    light_shader.Activate();
-    glUniformMatrix4fv(glGetUniformLocation(light_shader.ID, "model"), 1, GL_FALSE, glm::value_ptr(lightModel));
-    glUniform4f(glGetUniformLocation(light_shader.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
     shader_program.Activate();
-    glUniformMatrix4fv(glGetUniformLocation(shader_program.ID, "model"), 1, GL_FALSE, glm::value_ptr(pyramidModel));
     glUniform4f(glGetUniformLocation(shader_program.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
     glUniform3f(glGetUniformLocation(shader_program.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+    shader_grass_program.Activate();
+    glUniform4f(glGetUniformLocation(shader_grass_program.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+    glUniform3f(glGetUniformLocation(shader_grass_program.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+    shader_window_program.Activate();
+    glUniform4f(glGetUniformLocation(shader_window_program.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+    glUniform3f(glGetUniformLocation(shader_window_program.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
 
-    std::string path = std::filesystem::current_path().string() + "\\Resources\\Textures\\" ;
-
-    // Texture
-    Texture plank_tex((path + "planks.png").c_str(), GL_TEXTURE_2D, 0, GL_RGBA, GL_UNSIGNED_BYTE);
-    plank_tex.TexUnit(shader_program, "tex0", 0);
-
-    Texture planks_spec((path + "planksSpec.png").c_str(), GL_TEXTURE_2D, 1, GL_RED, GL_UNSIGNED_BYTE);
-    planks_spec.TexUnit(shader_program, "tex1", 1);
     // Enables the Depth Buffer
     glEnable(GL_DEPTH_TEST);
+    // Enables the Stencil Buffer
+    glEnable(GL_STENCIL_TEST);
+    // Sets rules for outcomes of stecil tests
+    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);  
+
+    // Enables Cull Facing
+    glEnable(GL_CULL_FACE);
+    // Keeps front faces
+    glCullFace(GL_BACK);
+    // Uses clock-wise standard
+    glFrontFace(GL_CCW);
+
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     Camera camera(width, height, glm::vec3(0.f, 0.f, 0.f));
+
+    Model grass((resources_path + "Models/grass/scene.gltf").c_str());
+    Model ground((resources_path + "Models/ground/scene.gltf").c_str());
+    Model windows((resources_path + "Models/window/scene.gltf").c_str());
+
+    // Generates all windows
+    for (unsigned int i = 0; i < numWindows; i++)
+    {
+        positionsWin[i] = glm::vec3
+        (
+            -15.0f + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (15.0f - (-15.0f)))),
+            1.0f + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (4.0f - 1.0f))),
+            -15.0f + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (15.0f - (-15.0f))))
+        );
+        rotationsWin[i] = static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / 1.0f));
+        orderDraw[i] = i;
+    }
+
+
+    double prevTime = 0.0;
+    double deltaTime = 0.0;
+    double currentTime = 0.0;
+
+    unsigned int counter = 0;
+
+
+
+
 
     // Main while loop
     while (!glfwWindowShouldClose(window)) {
 
-        // Specify the color of the background
-        glClearColor(0.07f, 0.13f, 0.17f, 1.0f);
-        // Clean the back buffer and assign the new color to it
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        currentTime = glfwGetTime();
+        deltaTime = currentTime - prevTime;
 
-        camera.Inputs(window);
+        counter++;
+        if (deltaTime > 1.0 / 30.0)
+        {
+            std::string FPS = std::to_string((1.0f / deltaTime) * counter);
+            std::string ms = std::to_string((deltaTime / counter) * 1000);
+            std::string title = "Engine - " + FPS + "FPS / " + ms + "ms";
+            glfwSetWindowTitle(window, title.c_str());
+            prevTime = currentTime;
+            counter = 0;
+
+            // Handles camera inputs
+            camera.Inputs(window);
+        }
+
+
+        // Specify the color of the background
+        glClearColor(0.07f, 0.15f, 0.30f, 1.0f);
+        // Clean the back buffer and assign the new color to it
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
+
+        // Updates and exports the camera matrix to the Vertex Shader
         camera.UpdateMatrix(45.0f, 0.1f, 100.0f);
 
+        // Draws model
+        // Make it so the stencil test always passes
+        glStencilFunc(GL_ALWAYS, 1, 0xFF);
+        // Enable modifying of the stencil buffer
+        glStencilMask(0xFF);
+        // Draw the normal model
+        ground.Draw(shader_program, camera);
+
+        glDisable(GL_CULL_FACE);
+        grass.Draw(shader_grass_program, camera);
+        glEnable(GL_BLEND);
+
+        // Get distance from each window to the camera
+        for (unsigned int i = 0; i < numWindows; i++)
+        {
+            distanceCamera[i] = glm::length(camera.position - positionsWin[i]);
+        }
+        // Sort windows by distance from camera
+        qsort(orderDraw, numWindows, sizeof(unsigned int), compare);
+        // Draw windows
+        for (unsigned int i = 0; i < numWindows; i++)
+        {
+            windows.Draw(shader_window_program, camera, positionsWin[orderDraw[i]], glm::quat(1.0f, 0.0f, rotationsWin[orderDraw[i]], 0.0f));
+        }
+
+        glDisable(GL_BLEND);
+        glEnable(GL_CULL_FACE);
+
+        // Make it so only the pixels without the value 1 pass the test
+       glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
+        //Disable modifying of the stencil buffer
+       glStencilMask(0x00);
+        // Disable the depth buffer
+       glDisable(GL_DEPTH_TEST);
 
 
-        // Tell OpenGL which Shader Program we want to use
-        shader_program.Activate();
-        glUniform3f(glGetUniformLocation(shader_program.ID, "camPos"), camera.position.x, camera.position.y, camera.position.z);
-
-        camera.Matrix(shader_program, "camMatrix");
-
-        // Binds texture so that is appears in rendering
-        plank_tex.Bind();
-        planks_spec.Bind();
-        // Bind the VAO so OpenGL knows to use it
-        VAO1.Bind();
-        // Draw primitives, number of indices, datatype of indices, index of indices
-        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
-
-        light_shader.Activate();
+        // Second method from the tutorial
+        outlining_shader_program.Activate();
+        glUniform1f(glGetUniformLocation(outlining_shader_program.ID, "outlining"), 0.08f);
+        ground.Draw(outlining_shader_program, camera);
 
 
-        camera.Matrix(light_shader, "camMatrix");
-        light_VAO.Bind();
 
-        glDrawElements(GL_TRIANGLES, sizeof(lightIndices) / sizeof(int), GL_UNSIGNED_INT, 0);
-
+        // Enable modifying of the stencil buffer
+        glStencilMask(0xFF);
+        // Clear stencil buffer
+        glStencilFunc(GL_ALWAYS, 0, 0xFF);
+        // Enable the depth buffer
+        glEnable(GL_DEPTH_TEST);
 
         // Swap the back buffer with the front buffer
         glfwSwapBuffers(window);
@@ -205,17 +225,10 @@ int main()
     }
 
     // Delete all the object we've created
-    VAO1.Delete();
-    VBO1.Delete();
-    EBO1.Delete();
-    plank_tex.Delete();
-    planks_spec.Delete();
     shader_program.Delete();
-    light_VAO.Delete();
-    light_VBO.Delete();
-    light_EBO.Delete();
-    light_shader.Delete();
-
+    shader_grass_program.Delete();
+    outlining_shader_program.Delete();
+    shader_window_program.Delete();
     // Destroy window before ending the program
     glfwDestroyWindow(window);
 
