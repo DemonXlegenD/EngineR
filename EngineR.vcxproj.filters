@@ -89,6 +89,12 @@
     <None Include="framebuffer.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
+    <None Include="skybox.frag">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
+    <None Include="skybox.vert">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h">

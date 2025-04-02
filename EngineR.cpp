@@ -17,6 +17,8 @@
 
 #include "Model.h"
 
+#include "Debug.h"
+
 const int width = 800;
 const int height = 800;
 
@@ -50,6 +52,43 @@ float rectangleVertices[] =
      1.0f, -1.0f,  1.0f, 0.0f,
     -1.0f,  1.0f,  0.0f, 1.0f
 };
+
+float skyboxVertices[] =
+{
+    //   Coordinates
+    -1.0f, -1.0f,  1.0f,//        7--------6
+     1.0f, -1.0f,  1.0f,//       /|       /|
+     1.0f, -1.0f, -1.0f,//      4--------5 |
+    -1.0f, -1.0f, -1.0f,//      | |      | |
+    -1.0f,  1.0f,  1.0f,//      | 3------|-2
+     1.0f,  1.0f,  1.0f,//      |/       |/
+     1.0f,  1.0f, -1.0f,//      0--------1
+    -1.0f,  1.0f, -1.0f
+};
+
+unsigned int skyboxIndices[] =
+{
+    // Right
+    1, 2, 6,
+    6, 5, 1,
+    // Left
+    0, 4, 7,
+    7, 3, 0,
+    // Top
+    4, 5, 6,
+    6, 7, 4,
+    // Bottom
+    0, 3, 2,
+    2, 1, 0,
+    // Back
+    0, 1, 5,
+    5, 4, 0,
+    // Front
+    3, 7, 6,
+    6, 2, 3
+};
+
+
 
 int main()
 {
@@ -89,6 +128,8 @@ int main()
 
     Shader outlining_shader_program("outlining.vert", "outlining.frag");
 
+    Shader skyboxShader("skybox.vert", "skybox.frag");
+
     // Take care of all the light related things
     glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
     glm::vec3 lightPos = glm::vec3(0.5f, 0.5f, 0.5f);
@@ -108,21 +149,11 @@ int main()
     framebuffer_program.Activate();
     glUniform1i(glGetUniformLocation(framebuffer_program.ID, "screenTexture"), 0);
 
+    skyboxShader.Activate();
+    glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
+
     // Enables the Depth Buffer
     glEnable(GL_DEPTH_TEST);
-    // Enables the Stencil Buffer
-    glEnable(GL_STENCIL_TEST);
-    // Sets rules for outcomes of stecil tests
-    glStencilOp(GL_KEEP, GL_KEEP, GL_REPLACE);  
-
-    // Enables Cull Facing
-    glEnable(GL_CULL_FACE);
-    // Keeps front faces
-    glCullFace(GL_BACK);
-    // Uses clock-wise standard
-    glFrontFace(GL_CCW);
-
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
     Camera camera(width, height, glm::vec3(0.f, 0.f, 0.f));
 
@@ -143,17 +174,6 @@ int main()
         orderDraw[i] = i;
     }
 
-    // Prepare framebuffer rectangle VBO and VAO
-    unsigned int rectVAO, rectVBO;
-    glGenVertexArrays(1, &rectVAO);
-    glGenBuffers(1, &rectVBO);
-    glBindVertexArray(rectVAO);
-    glBindBuffer(GL_ARRAY_BUFFER, rectVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(rectangleVertices), &rectangleVertices, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 
     double prevTime = 0.0;
     double deltaTime = 0.0;
@@ -161,36 +181,75 @@ int main()
 
     unsigned int counter = 0;
 
-    // Create Frame Buffer Object
-    unsigned int FBO;
-    glGenFramebuffers(1, &FBO);
-    glBindFramebuffer(GL_FRAMEBUFFER, FBO);
-
-    // Create Framebuffer Texture
-    unsigned int framebufferTexture;
-    glGenTextures(1, &framebufferTexture);
-    glBindTexture(GL_TEXTURE_2D, framebufferTexture);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, NULL);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE); // Prevents edge bleeding
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE); // Prevents edge bleeding
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, framebufferTexture, 0);
-
-    // Create Render Buffer Object
-    unsigned int RBO;
-    glGenRenderbuffers(1, &RBO);
-    glBindRenderbuffer(GL_RENDERBUFFER, RBO);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT, GL_RENDERBUFFER, RBO);
 
 
-    // Error checking framebuffer
-    auto fboStatus = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (fboStatus != GL_FRAMEBUFFER_COMPLETE)
-        std::cout << "Framebuffer error: " << fboStatus << std::endl;
+    // Create VAO, VBO, and EBO for the skybox
+    unsigned int skyboxVAO, skyboxVBO, skyboxEBO;
+    glGenVertexArrays(1, &skyboxVAO);
+    glGenBuffers(1, &skyboxVBO);
+    glGenBuffers(1, &skyboxEBO);
+    glBindVertexArray(skyboxVAO);
+    glBindBuffer(GL_ARRAY_BUFFER, skyboxVBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(skyboxVertices), &skyboxVertices, GL_STATIC_DRAW);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, skyboxEBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(skyboxIndices), &skyboxIndices, GL_STATIC_DRAW);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindVertexArray(0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
+    std::string facesCubemap[6] = {
+        resources_path + "Cubemaps/skybox/right.jpg",
+              resources_path + "Cubemaps/skybox/left.jpg",
+                    resources_path + "Cubemaps/skybox/top.jpg",
+                          resources_path + "Cubemaps/skybox/bottom.jpg",
+                                resources_path + "Cubemaps/skybox/front.jpg",
+                                      resources_path + "Cubemaps/skybox/back.jpg",
+    };
 
+    // Creates the cubemap texture object
+    unsigned int cubemapTexture;
+    glGenTextures(1, &cubemapTexture);
+    glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    // These are very important to prevent seams
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+    // This might help with seams on some systems
+    //glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
+
+    // Cycles through all the textures and attaches them to the cubemap object
+    for (unsigned int i = 0; i < 6; i++)
+    {
+        Engine::Debug::Log(facesCubemap[i]);
+        int width, height, nrChannels;
+        unsigned char* data = stbi_load(facesCubemap[i].c_str(), &width, &height, &nrChannels, 0);
+        if (data)
+        {
+            stbi_set_flip_vertically_on_load(false);
+            glTexImage2D
+            (
+                GL_TEXTURE_CUBE_MAP_POSITIVE_X + i,
+                0,
+                GL_RGB,
+                width,
+                height,
+                0,
+                GL_RGB,
+                GL_UNSIGNED_BYTE,
+                data
+            );
+            stbi_image_free(data);
+        }
+        else
+        {
+            std::cout << "Failed to load texture: " << facesCubemap[i] << std::endl;
+            stbi_image_free(data);
+        }
+    }
 
     // This might help with seams on some systems
     //glEnable(GL_TEXTURE_CUBE_MAP_SEAMLESS);
@@ -215,74 +274,36 @@ int main()
             camera.Inputs(window);
         }
 
-        glBindFramebuffer(GL_FRAMEBUFFER, FBO);
+      
         // Specify the color of the background
-        glClearColor(0.07f, 0.15f, 0.30f, 1.0f);
+        glClearColor(1.f, 1.f, 1.f, 1.0f);
         // Clean the back buffer and assign the new color to it
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-       
-        glEnable(GL_DEPTH_TEST);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // Updates and exports the camera matrix to the Vertex Shader
         camera.UpdateMatrix(45.0f, 0.1f, 100.0f);
 
-        // Draws model
-        // Make it so the stencil test always passes
-        glStencilFunc(GL_ALWAYS, 1, 0xFF);
-        // Enable modifying of the stencil buffer
-        glStencilMask(0xFF);
-        // Draw the normal model
         ground.Draw(shader_program, camera);
 
-        glDisable(GL_CULL_FACE);
-        grass.Draw(shader_grass_program, camera);
-        glEnable(GL_BLEND);
+        glDepthFunc(GL_LEQUAL);
 
-        // Get distance from each window to the camera
-        for (unsigned int i = 0; i < numWindows; i++)
-        {
-            distanceCamera[i] = glm::length(camera.position - positionsWin[i]);
-        }
-        // Sort windows by distance from camera
-        qsort(orderDraw, numWindows, sizeof(unsigned int), compare);
-        // Draw windows
-        for (unsigned int i = 0; i < numWindows; i++)
-        {
-            windows.Draw(shader_window_program, camera, positionsWin[orderDraw[i]], glm::quat(1.0f, 0.0f, rotationsWin[orderDraw[i]], 0.0f));
-        }
+        skyboxShader.Activate();
 
-        // Bind the default framebuffer
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-        // Draw the framebuffer rectangle
-        framebuffer_program.Activate();
-        glBindVertexArray(rectVAO);
-        glDisable(GL_DEPTH_TEST); // prevents framebuffer rectangle from being discarded
-        glBindTexture(GL_TEXTURE_2D, framebufferTexture);
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glm::mat4 view = glm::mat4(1.0f);
+        glm::mat4 proj = glm::mat4(1.0f);
 
-        glDisable(GL_BLEND);
-        glEnable(GL_CULL_FACE);
+        view = glm::mat4(glm::mat3(glm::lookAt(camera.position, camera.position + camera.orientation, camera.up)));
+        proj = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 100.0f);
+        glUniformMatrix4fv(glGetUniformLocation(skyboxShader.ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
+        glUniformMatrix4fv(glGetUniformLocation(skyboxShader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(proj));
 
-        // Make it so only the pixels without the value 1 pass the test
-        glStencilFunc(GL_NOTEQUAL, 1, 0xFF);
-        //Disable modifying of the stencil buffer
-        glStencilMask(0x00);
-        // Disable the depth buffer
-        glDisable(GL_DEPTH_TEST);
+        glBindVertexArray(skyboxVAO);
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_CUBE_MAP, cubemapTexture);
+        glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+        glBindVertexArray(0);
 
-
-        // Second method from the tutorial
-        outlining_shader_program.Activate();
-        glUniform1f(glGetUniformLocation(outlining_shader_program.ID, "outlining"), 0.08f);
-        ground.Draw(outlining_shader_program, camera);
-
-
-        // Enable modifying of the stencil buffer
-        glStencilMask(0xFF);
-        // Clear stencil buffer
-        glStencilFunc(GL_ALWAYS, 0, 0xFF);
-        // Enable the depth buffer
-        glEnable(GL_DEPTH_TEST);
+        glDepthFunc(GL_LESS);
 
 
         // Swap the back buffer with the front buffer
@@ -292,7 +313,6 @@ int main()
     }
 
     // Delete all the object we've created
-    glDeleteFramebuffers(1, &FBO);
     shader_program.Delete();
     shader_grass_program.Delete();
     outlining_shader_program.Delete();

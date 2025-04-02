@@ -1,3 +1,2 @@
 ﻿  EngineR.cpp
-LINK : warning LNK4098: conflit entre la bibliothèque par défaut 'MSVCRT' et les autres bibliothèques ; utilisez /NODEFAULTLIB:library
   EngineR.vcxproj -> C:\Users\flaha\Documents\GitHub\EngineR\EngineR\x64\Debug\EngineR.exe
