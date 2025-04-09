@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Librairies\glfw\include;$(SolutionDir)Librairies\glad\include;$(SolutionDir)Librairies\stb;$(SolutionDir)Librairies\glm;$(SolutionDir)Librairies\nlohmann;$(SolutionDir)Librairies\assimp\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Librairies\glfw\include;$(SolutionDir)Librairies\glad\include;$(SolutionDir)Librairies\stb;$(SolutionDir)Librairies\glm;$(SolutionDir)Librairies\nlohmann;$(SolutionDir)Librairies\assimp\include;$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Librairies\glfw\include;$(SolutionDir)Librairies\glad\include;$(SolutionDir)Librairies\stb;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Librairies\glfw\include;$(SolutionDir)Librairies\glad\include;$(SolutionDir)Librairies\stb;%(AdditionalIncludeDirectories);$(SolutionDir)include;$(SolutionDir)include\API_Graphique;$(SolutionDir)include\API_Graphique\OpenGL;$(SolutionDir)include\Module;$(SolutionDir)include\API_Graphique;$(SolutionDir)include\API_Graphique\OpenGL;$(SolutionDir)include\Module;$(SolutionDir)include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,46 +132,67 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Debug.cpp" />
+    <ClCompile Include="src\Application.cpp" />
+    <ClCompile Include="src\Camera.cpp" />
+    <ClCompile Include="src\Debug.cpp" />
     <ClCompile Include="EngineR.cpp" />
-    <ClCompile Include="IndexBuffer.cpp" />
+    <ClCompile Include="src\API_Graphique\IDevice.cpp" />
+    <ClCompile Include="src\IndexBuffer.cpp" />
     <ClCompile Include="Librairies\glad\src\glad.c" />
-    <ClCompile Include="Mesh.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="stb.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="VertexArray.cpp" />
-    <ClCompile Include="VertexBuffer.cpp" />
+    <ClCompile Include="src\Mesh.cpp" />
+    <ClCompile Include="src\Model.cpp" />
+    <ClCompile Include="src\Module\Module.cpp" />
+    <ClCompile Include="src\Module\ModuleManager.cpp" />
+    <ClCompile Include="src\API_Graphique\OpenGLDevice.cpp" />
+    <ClCompile Include="src\API_Graphique\OpenGLRenderInterface.cpp" />
+    <ClCompile Include="src\API_Graphique\OpenGLSwapchain.cpp" />
+    <ClCompile Include="src\Module\RHI.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
+    <ClCompile Include="src\stb.cpp" />
+    <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\Module\Time.cpp" />
+    <ClCompile Include="src\VertexArray.cpp" />
+    <ClCompile Include="src\VertexBuffer.cpp" />
+    <ClCompile Include="src\Module\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
-    <None Include="framebuffer.frag" />
-    <None Include="framebuffer.vert" />
-    <None Include="grass.frag" />
-    <None Include="light.frag" />
-    <None Include="light.vert" />
-    <None Include="outlining.frag" />
-    <None Include="outlining.vert" />
-    <None Include="skybox.frag" />
-    <None Include="skybox.vert" />
-    <None Include="window.frag" />
+    <None Include="Shaders\default.frag" />
+    <None Include="Shaders\default.vert" />
+    <None Include="Shaders\framebuffer.frag" />
+    <None Include="Shaders\framebuffer.vert" />
+    <None Include="Shaders\grass.frag" />
+    <None Include="Shaders\light.frag" />
+    <None Include="Shaders\light.vert" />
+    <None Include="Shaders\outlining.frag" />
+    <None Include="Shaders\outlining.vert" />
+    <None Include="Shaders\skybox.frag" />
+    <None Include="Shaders\skybox.vert" />
+    <None Include="Shaders\window.frag" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Debug.h" />
-    <ClInclude Include="IndexBuffer.h" />
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="VertexArray.h" />
-    <ClInclude Include="VertexBuffer.h" />
+    <ClInclude Include="include\Application.h" />
+    <ClInclude Include="include\Camera.h" />
+    <ClInclude Include="include\Debug.h" />
+    <ClInclude Include="include\API_Graphique\IDevice.h" />
+    <ClInclude Include="include\IndexBuffer.h" />
+    <ClInclude Include="include\API_Graphique\IRenderInterface.h" />
+    <ClInclude Include="include\API_Graphique\ISwapchain.h" />
+    <ClInclude Include="include\Mesh.h" />
+    <ClInclude Include="include\Model.h" />
+    <ClInclude Include="include\Module\Module.h" />
+    <ClInclude Include="include\Module\ModuleManager.h" />
+    <ClInclude Include="include\API_Graphique\OpenGL\OpenGLDevice.h" />
+    <ClInclude Include="include\API_Graphique\OpenGL\OpenGLRenderInterface.h" />
+    <ClInclude Include="include\API_Graphique\OpenGL\OpenGLSwapchain.h" />
+    <ClInclude Include="include\Module\RHI.h" />
+    <ClInclude Include="include\Shader.h" />
+    <ClInclude Include="include\Texture.h" />
+    <ClInclude Include="include\Module\Time.h" />
+    <ClInclude Include="include\VertexArray.h" />
+    <ClInclude Include="include\VertexBuffer.h" />
+    <ClInclude Include="include\Module\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="pop_cat.png" />
     <Image Include="Resources\Textures\planks.png" />
     <Image Include="Resources\Textures\planksSpec.png" />
   </ItemGroup>

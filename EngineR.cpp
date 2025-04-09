@@ -120,15 +120,17 @@ int main()
     // Specify the viewport of OpenGL in the Window (!= window)
     glViewport(0, 0, width, height); 
 
+    std::string shader_path = directory_path + "/Shaders/";
+
     // Generates Shader object using shaders default.vert and default.frag
-    Shader shader_program("default.vert", "default.frag");
-    Shader shader_grass_program("default.vert", "grass.frag");
-    Shader shader_window_program("default.vert", "window.frag");
-    Shader framebuffer_program("framebuffer.vert", "framebuffer.frag");
+    Engine::Shader shader_program; shader_program.Load((shader_path + "default.vert").c_str(), (shader_path + "default.frag").c_str());
+    Engine::Shader shader_grass_program; shader_grass_program.Load((shader_path + "default.vert").c_str(), (shader_path + "grass.frag").c_str());
+    Engine::Shader shader_window_program; shader_window_program.Load((shader_path + "default.vert").c_str(), (shader_path + "window.frag").c_str());
+    Engine::Shader framebuffer_program; framebuffer_program.Load((shader_path + "framebuffer.vert").c_str(), (shader_path + "framebuffer.frag").c_str());
 
-    Shader outlining_shader_program("outlining.vert", "outlining.frag");
+    Engine::Shader outlining_shader_program; outlining_shader_program.Load((shader_path + "outlining.vert").c_str(), (shader_path + "outlining.frag").c_str());
 
-    Shader skyboxShader("skybox.vert", "skybox.frag");
+    Engine::Shader skyboxShader; skyboxShader.Load((shader_path + "skybox.vert").c_str(), (shader_path + "skybox.frag").c_str());
 
     // Take care of all the light related things
     glm::vec4 lightColor = glm::vec4(1.0f, 1.0f, 1.0f, 1.0f);
@@ -137,29 +139,29 @@ int main()
     lightModel = glm::translate(lightModel, lightPos);
 
     shader_program.Activate();
-    glUniform4f(glGetUniformLocation(shader_program.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-    glUniform3f(glGetUniformLocation(shader_program.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+    glUniform4f(glGetUniformLocation(shader_program.GetID(), "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+    glUniform3f(glGetUniformLocation(shader_program.GetID(), "lightPos"), lightPos.x, lightPos.y, lightPos.z);
     shader_grass_program.Activate();
-    glUniform4f(glGetUniformLocation(shader_grass_program.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-    glUniform3f(glGetUniformLocation(shader_grass_program.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+    glUniform4f(glGetUniformLocation(shader_grass_program.GetID(), "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+    glUniform3f(glGetUniformLocation(shader_grass_program.GetID(), "lightPos"), lightPos.x, lightPos.y, lightPos.z);
     shader_window_program.Activate();
-    glUniform4f(glGetUniformLocation(shader_window_program.ID, "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
-    glUniform3f(glGetUniformLocation(shader_window_program.ID, "lightPos"), lightPos.x, lightPos.y, lightPos.z);
+    glUniform4f(glGetUniformLocation(shader_window_program.GetID(), "lightColor"), lightColor.x, lightColor.y, lightColor.z, lightColor.w);
+    glUniform3f(glGetUniformLocation(shader_window_program.GetID(), "lightPos"), lightPos.x, lightPos.y, lightPos.z);
 
     framebuffer_program.Activate();
-    glUniform1i(glGetUniformLocation(framebuffer_program.ID, "screenTexture"), 0);
+    glUniform1i(glGetUniformLocation(framebuffer_program.GetID(), "screenTexture"), 0);
 
     skyboxShader.Activate();
-    glUniform1i(glGetUniformLocation(skyboxShader.ID, "skybox"), 0);
+    glUniform1i(glGetUniformLocation(skyboxShader.GetID(), "skybox"), 0);
 
     // Enables the Depth Buffer
     glEnable(GL_DEPTH_TEST);
 
-    Camera camera(width, height, glm::vec3(0.f, 0.f, 0.f));
+    Engine::Camera camera(width, height, glm::vec3(0.f, 0.f, 0.f));
 
-    Model grass((resources_path + "Models/crow/scene.gltf").c_str());
-    Model ground((resources_path + "Models/ground/scene.gltf").c_str());
-    Model windows((resources_path + "Models/window/scene.gltf").c_str());
+    Engine::Model grass((resources_path + "Models/crow/scene.gltf").c_str());
+    Engine::Model ground((resources_path + "Models/ground/scene.gltf").c_str());
+    Engine::Model windows((resources_path + "Models/window/scene.gltf").c_str());
 
     // Generates all windows
     for (unsigned int i = 0; i < numWindows; i++)
@@ -271,12 +273,12 @@ int main()
             counter = 0;
 
             // Handles camera inputs
-            camera.Inputs(window);
-        }
 
+        }
+            camera.Inputs(window);
       
         // Specify the color of the background
-        glClearColor(1.f, 1.f, 1.f, 1.0f);
+        glClearColor(1.f, 1.f, 1.f, 1.0f);  
         // Clean the back buffer and assign the new color to it
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -294,8 +296,8 @@ int main()
 
         view = glm::mat4(glm::mat3(glm::lookAt(camera.position, camera.position + camera.orientation, camera.up)));
         proj = glm::perspective(glm::radians(45.0f), (float)width / height, 0.1f, 100.0f);
-        glUniformMatrix4fv(glGetUniformLocation(skyboxShader.ID, "view"), 1, GL_FALSE, glm::value_ptr(view));
-        glUniformMatrix4fv(glGetUniformLocation(skyboxShader.ID, "projection"), 1, GL_FALSE, glm::value_ptr(proj));
+        glUniformMatrix4fv(glGetUniformLocation(skyboxShader.GetID(), "view"), 1, GL_FALSE, glm::value_ptr(view));
+        glUniformMatrix4fv(glGetUniformLocation(skyboxShader.GetID(), "projection"), 1, GL_FALSE, glm::value_ptr(proj));
 
         glBindVertexArray(skyboxVAO);
         glActiveTexture(GL_TEXTURE0);
@@ -313,10 +315,10 @@ int main()
     }
 
     // Delete all the object we've created
-    shader_program.Delete();
-    shader_grass_program.Delete();
-    outlining_shader_program.Delete();
-    shader_window_program.Delete();
+    shader_program.Unload();
+    shader_grass_program.Unload();
+    outlining_shader_program.Unload();
+    shader_window_program.Unload();
 
 
     // Destroy window before ending the program

@@ -27,108 +27,171 @@
     <ClCompile Include="Librairies\glad\src\glad.c">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
+    <ClCompile Include="src\Shader.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="VertexBuffer.cpp">
+    <ClCompile Include="src\VertexBuffer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="IndexBuffer.cpp">
+    <ClCompile Include="src\IndexBuffer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="VertexArray.cpp">
+    <ClCompile Include="src\VertexArray.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="stb.cpp">
+    <ClCompile Include="src\stb.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Texture.cpp">
+    <ClCompile Include="src\Texture.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
+    <ClCompile Include="src\Camera.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Mesh.cpp">
+    <ClCompile Include="src\Mesh.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Model.cpp">
+    <ClCompile Include="src\Model.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Debug.cpp">
+    <ClCompile Include="src\Debug.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Module\Window.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Module\Module.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Module\ModuleManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Application.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Module\Time.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Module\RHI.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\API_Graphique\OpenGLSwapchain.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\API_Graphique\OpenGLDevice.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\API_Graphique\OpenGLRenderInterface.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\API_Graphique\IDevice.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.vert">
+    <None Include="Shaders\default.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="default.frag">
+    <None Include="Shaders\default.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="light.vert">
+    <None Include="Shaders\light.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="light.frag">
+    <None Include="Shaders\light.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="outlining.vert">
+    <None Include="Shaders\outlining.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="outlining.frag">
+    <None Include="Shaders\outlining.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="grass.frag">
+    <None Include="Shaders\grass.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="window.frag">
+    <None Include="Shaders\window.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="framebuffer.vert">
+    <None Include="Shaders\framebuffer.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="framebuffer.frag">
+    <None Include="Shaders\framebuffer.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="skybox.frag">
+    <None Include="Shaders\skybox.frag">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
-    <None Include="skybox.vert">
+    <None Include="Shaders\skybox.vert">
       <Filter>Fichiers de ressources\Shaders</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="include\Shader.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="VertexBuffer.h">
+    <ClInclude Include="include\VertexBuffer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="IndexBuffer.h">
+    <ClInclude Include="include\IndexBuffer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="VertexArray.h">
+    <ClInclude Include="include\VertexArray.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="include\Texture.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
+    <ClInclude Include="include\Camera.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
+    <ClInclude Include="include\Mesh.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
+    <ClInclude Include="include\Model.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Debug.h">
+    <ClInclude Include="include\Debug.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Module\Window.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Module\Module.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Module\ModuleManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Application.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Module\Time.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Module\RHI.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\API_Graphique\OpenGL\OpenGLSwapchain.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\API_Graphique\OpenGL\OpenGLDevice.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\API_Graphique\OpenGL\OpenGLRenderInterface.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\API_Graphique\IDevice.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\API_Graphique\ISwapchain.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="include\API_Graphique\IRenderInterface.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="pop_cat.png">
-      <Filter>Fichiers de ressources\Textures</Filter>
-    </Image>
     <Image Include="Resources\Textures\planks.png">
       <Filter>Fichiers de ressources\Textures</Filter>
     </Image>
